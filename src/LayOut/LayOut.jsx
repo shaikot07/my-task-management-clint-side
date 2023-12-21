@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import NavBar from '../Home/Navbar/NavBar';
 import SideNavbar from '../Home/Navbar/SideNavbar';
+import Footer from '../pages/Footer/Footer';
 
 const LayOut = () => {
       return (
@@ -14,6 +15,9 @@ const LayOut = () => {
                 <div className='w-full'>
                     
                         <Outlet></Outlet>
+                        <div className='max-w-5xl mx-auto'>
+                        <Footer></Footer>
+                        </div>
                     
                 </div>
             </div>
