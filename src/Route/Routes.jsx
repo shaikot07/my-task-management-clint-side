@@ -4,6 +4,8 @@ import LayOut from "../LayOut/LayOut";
 import SignUp from "../pages/Signup/SignUp";
 import LogIn from "../pages/Login/LogIn";
 import AddTask from "../pages/AddTask/AddTask";
+import ViewTask from "../pages/vew-task/ViewTask";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -28,7 +30,11 @@ export const router = createBrowserRouter([
             },
             {
                   path: '/addedtask',
-                  element: <AddTask></AddTask>
+                  element: <PrivateRoute><AddTask></AddTask></PrivateRoute>
+            },
+            {
+                  path: '/view-task',
+                  element: <PrivateRoute><ViewTask></ViewTask></PrivateRoute>
             },
         ]
       },

@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import MyLoading from '../assets/component/MyLoading';
 import useAuth from '../Hooks/useAuth';
 import { FaPlus } from 'react-icons/fa';
+import useTasks from '../Hooks/useTasks';
 
 const Home = () => {
       const { user, loading } = useAuth()
@@ -22,7 +23,7 @@ const Home = () => {
                         confirmButtonText: 'Yes, signin!'
                   }).then((result) => {
                         if (result.isConfirmed) {
-                              navigate('/signin')
+                              navigate('/login')
                         }
                   })
                   return

@@ -12,20 +12,22 @@ import {
 } from '@tanstack/react-query'
 import AuthProvider from './pages/AuthProvider/Authprovider.jsx';
 
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
+
 
 
 const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-
-    <AuthProvider>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router}>
-      </RouterProvider>
-    </QueryClientProvider>
-    </AuthProvider>
-
-
+    <DndProvider backend={HTML5Backend}>
+      <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router}>
+          </RouterProvider>
+        </QueryClientProvider>
+      </AuthProvider>
+    </DndProvider>
   </React.StrictMode>,
 )

@@ -4,7 +4,7 @@ import { FaGithubSquare, FaGlobe, FaLinkedin, FaLinkedinIn } from "react-icons/f
 
 const Footer = () => {
       return (
-            <footer className="footer items-center p-4 bg-[#2A3347]  text-white ">
+            <footer className="footer items-center mt-10 p-4 bg-[#2A3347]  text-white ">
                   <aside className="items-center grid-flow-col">
                         <h1 className='text-3xl text-[#A855F7]'>My Task</h1>
                         <br />

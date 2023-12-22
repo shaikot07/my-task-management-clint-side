@@ -278,6 +278,7 @@ const SignUp = () => {
                                                       name="terms"
                                                       aria-describedby="terms"
                                                       type="checkbox"
+                                                      
                                                       {...register("terms", { required: true })}
                                                       className="w-4 h-4"
                                                 />

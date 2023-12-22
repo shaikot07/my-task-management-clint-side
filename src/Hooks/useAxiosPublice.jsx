@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const axiosPublic = axios.create({
-      baseURL:'http://localhost:5000'
+      baseURL:'https://task-managment-server-side-bice.vercel.app'
 })
 const useAxiosPublice = () => {
       

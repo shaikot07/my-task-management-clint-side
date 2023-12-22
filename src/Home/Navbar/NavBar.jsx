@@ -34,11 +34,25 @@ const NavBar = () => {
       }
 
       const menu = <>
-            <li> <Link className="rounded-none text-slate-50 font-bold border-b-0 hover:!text-[#A855F7] hover:border-[#A855F7] hover:border-b-2 transition duration-300 focus:!text-white" to={'/'}>Home</Link> </li>
-            <li> <Link className="rounded-none text-slate-50 font-bold hover:!text-[#A855F7]  hover:border-[#A855F7] hover:border-b-2 transition duration-300" to={'/signup'}>Sign up</Link> </li>
-            <li> <Link className="rounded-none text-slate-50 font-bold hover:!text-[#A855F7]  hover:border-[#A855F7] hover:border-b-2 transition duration-300" to={'/addedtask'}>Add Task</Link> </li>
+       <li> <Link className="rounded-none text-slate-50 font-bold border-b-0 hover:!text-[#A855F7] hover:border-[#A855F7] hover:border-b-2 transition duration-300 focus:!text-white" to={'/'}>Home</Link> </li>
+             {
+                  
+                  user ?<> 
+                 
+                  <li> <Link className="rounded-none text-slate-50 font-bold hover:!text-[#A855F7]  hover:border-[#A855F7] hover:border-b-2 transition duration-300" to={'/addedtask'}>Add Task</Link> </li>
+                  <li> <Link className="rounded-none text-slate-50 font-bold hover:!text-[#A855F7]  hover:border-[#A855F7] hover:border-b-2 transition duration-300" to={'/view-task'}>View Task</Link> </li>
+                  </>
+                  :<>
+                  <li> <Link className="rounded-none text-slate-50 font-bold hover:!text-[#A855F7]  hover:border-[#A855F7] hover:border-b-2 transition duration-300" to={'/login'}>Log In</Link> </li>
+                  <li> <Link className="rounded-none text-slate-50 font-bold hover:!text-[#A855F7]  hover:border-[#A855F7] hover:border-b-2 transition duration-300" to={'/signup'}>Sign up</Link> </li>
+                  </>
+             }
+             {/* <li> <Link className="rounded-none text-slate-50 font-bold border-b-0 hover:!text-[#A855F7] hover:border-[#A855F7] hover:border-b-2 transition duration-300 focus:!text-white" to={'/'}>Home</Link> </li>
+             <li> <Link className="rounded-none text-slate-50 font-bold hover:!text-[#A855F7]  hover:border-[#A855F7] hover:border-b-2 transition duration-300" to={'/addedtask'}>Add Task</Link> </li>
+             <li> <Link className="rounded-none text-slate-50 font-bold hover:!text-[#A855F7]  hover:border-[#A855F7] hover:border-b-2 transition duration-300" to={'/view-task'}>View Task</Link> </li>
             <li> <Link className="rounded-none text-slate-50 font-bold hover:!text-[#A855F7]  hover:border-[#A855F7] hover:border-b-2 transition duration-300" to={'/login'}>Log In</Link> </li>
-            <li><a className="rounded-none text-slate-50 font-bold hover:!text-[#A855F7]  hover:border-[#A855F7] hover:border-b-2 transition duration-300" href="#about">About</a></li>
+            <li> <Link className="rounded-none text-slate-50 font-bold hover:!text-[#A855F7]  hover:border-[#A855F7] hover:border-b-2 transition duration-300" to={'/signup'}>Sign up</Link> </li> */}
+    
             
 
       </>
@@ -75,7 +89,7 @@ const NavBar = () => {
                                 </ul>
                             </figure>
                         </>
-                        : <Link to={'/signin'}><button className='my-btn-one'>Signin</button></Link>
+                        : <Link to={'/login'}><button className='my-btn-one'>Log In</button></Link>
                 }
                   </div>
             </div>
