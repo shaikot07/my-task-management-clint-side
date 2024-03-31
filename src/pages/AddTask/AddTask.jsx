@@ -11,7 +11,7 @@ const AddTask = () => {
 
       const { user, loading } = useAuth()
       const [insertTaskLoading, setInsertTaskLoading] = useState(false)
-      const [tasksLoading, setTasksLoading] = useState(true)
+      // const [tasksLoading, setTasksLoading] = useState(true)
       const axiosPublic =useAxiosPublice()
 
 
@@ -20,13 +20,13 @@ const AddTask = () => {
       const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
       const onSubmit = async (form) => {
             // setInsertTaskLoading(true)
-            const { title, description, dateTime, priority, } = form
-            const task = { title, description, deadline: dateTime, status: 'pending', priority, user: user?.email }
+            const { title, description, startDTime, priority,endDTime, } = form
+            const task = { title, description,  startDTime,endDTime, status: 'pending', priority, user: user?.email }
 
 
             console.log(task);
             const postTask = await  axiosPublic.post('/tasks', task );
-                  // console.log(menuRes.data);
+                  console.log(postTask.data);
                   if (postTask.data.insertedId) {
                         // show success popup 
                         Swal.fire({
@@ -71,10 +71,16 @@ const AddTask = () => {
                                     {errors.description && <span className='text-red-500 block font-semibold'>Description is required!</span>}
                               </div>
 
-                              {/* Due date */}
+                              {/* start date */}
                               <div>
-                                    <label className='text-white' htmlFor="due-date">Due Date</label>
-                                    <input className='my-inp' id='due-date' type="datetime-local" {...register("dateTime", { required: true })} />
+                                    <label className='text-white' htmlFor="due-date">Start Date</label>
+                                    <input className='my-inp' id='due-date' type="datetime-local" {...register("startDTime", { required: true })} />
+                                    {errors.dateTime && <span className='text-red-500 block font-semibold'>Date and time are required!</span>}
+                              </div>
+                              {/* end date */}
+                              <div>
+                                    <label className='text-white' htmlFor="due-date">End Date</label>
+                                    <input className='my-inp' id='due-date' type="datetime-local" {...register("endDTime", { required: true })} />
                                     {errors.dateTime && <span className='text-red-500 block font-semibold'>Date and time are required!</span>}
                               </div>
 

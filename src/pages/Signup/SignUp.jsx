@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Lottie from 'lottie-react';
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
@@ -9,6 +9,7 @@ import registrationLoadingLottie from "/public/assets/lottieAnimation/registrati
 import successRegistrationLottie from "/public/assets/lottieAnimation/successfully-registration-lottie.json";
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import useAxiosPublice from '../../Hooks/useAxiosPublice';
 
 const SignUp = () => {
       const navigate = useNavigate()
@@ -25,6 +26,7 @@ const SignUp = () => {
   const [isConfirmShowPass, setIsConfirmShowPass] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const axiosPublic= useAxiosPublice()
 //   const { storeUsers } = myLocalDB
 
   // If user not exist, then redirect to homepage
@@ -90,6 +92,7 @@ const SignUp = () => {
         createUser(email, password)
           .then((res) => {
             setSuccess("Registration successful");
+            axiosPublic.post('/users', user );
             setLoading(false);
             updatedUserProfile(user?.name, user?.photo_url)
               .then((res) => {

@@ -11,66 +11,66 @@ import Lottie from 'lottie-react';
 const LogIn = () => {
 
       const navigate = useNavigate();
-  const [isShowPass, setIsShowPass] = useState(false);
-  const [success, setSuccess] = useState("");
-  const [error, setError] = useState("");
-  const {  user, setUser,loading,setLoading,createUser,signIn,logOut,updatedUserProfile,googleSignIn } = useAuth()
+      const [isShowPass, setIsShowPass] = useState(false);
+      const [success, setSuccess] = useState("");
+      const [error, setError] = useState("");
+      const { user, setUser, loading, setLoading, createUser, signIn, logOut, updatedUserProfile, googleSignIn } = useAuth()
 
-  useEffect(() => {
-    if (user) {
-      return navigate("/");
-    }
-  }, [user]);
+      useEffect(() => {
+            if (user) {
+                  return navigate("/");
+            }
+      }, [user]);
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    reset,
-    formState: { errors },
-  } = useForm();
-  const handleSigninFunc = (form) => {
-      setLoading(true);
-    setError("");
-    const { email, password } = form;
+      const {
+            register,
+            handleSubmit,
+            watch,
+            reset,
+            formState: { errors },
+      } = useForm();
+      const handleSigninFunc = (form) => {
+            setLoading(true);
+            setError("");
+            const { email, password } = form;
 
-    // const user = { email, password };
-    signIn(email, password)
-      .then((res) => {
-        const loggedUser = res.user;
-        setLoading(false);
-        setUser(loggedUser);
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Login Successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        setSuccess('user signin by email & password!')
-        reset()
-        navigate("/");
-      })
-      .catch((e) => {
-            setLoading(false);
-        if (e.code === "auth/user-not-found") {
-          setError('User not found')
-        } else if (e.code === "auth/invalid-email") {
-          setError('Invalid email')
-        } else if (e.code === "auth/wrong-password") {
-          setError('wrong password')
-        } else if (e.code === "auth/too-many-requests") {
-          setError("Access to this account has been temporarily disabled due to many failed login attempts. Please reset your password or try again later.")
-        } else {
-          setError(e.message)
-        }
-      });
-  };
+            // const user = { email, password };
+            signIn(email, password)
+                  .then((res) => {
+                        const loggedUser = res.user;
+                        setLoading(false);
+                        setUser(loggedUser);
+                        Swal.fire({
+                              position: "center",
+                              icon: "success",
+                              title: "Login Successful",
+                              showConfirmButton: false,
+                              timer: 1500,
+                        });
+                        setSuccess('user signin by email & password!')
+                        reset()
+                        navigate("/");
+                  })
+                  .catch((e) => {
+                        setLoading(false);
+                        if (e.code === "auth/user-not-found") {
+                              setError('User not found')
+                        } else if (e.code === "auth/invalid-email") {
+                              setError('Invalid email')
+                        } else if (e.code === "auth/wrong-password") {
+                              setError('wrong password')
+                        } else if (e.code === "auth/too-many-requests") {
+                              setError("Access to this account has been temporarily disabled due to many failed login attempts. Please reset your password or try again later.")
+                        } else {
+                              setError(e.message)
+                        }
+                  });
+      };
 
       return (
             <div
                   className="bg-cover bg-center bg-slate-800 bg-blend-overlay pl-16 xl:pl-0"
-                  // style={{ backgroundImage: `url(${bgImg})` }}
+            // style={{ backgroundImage: `url(${bgImg})` }}
             >
                   <div className="min-h-screen grid grid-col-1 md:grid-cols-2 gap-4 xl:gap-8 items-center my-container">
                         <div className="p-5 lg:p-10 bg-purple-500 bg-opacity-25 shadow rounded">
@@ -135,7 +135,7 @@ const LogIn = () => {
                                                             name="remember"
                                                             aria-describedby="remember"
                                                             type="checkbox"
-                                                          
+
                                                             className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
                                                       />
                                                 </div>
